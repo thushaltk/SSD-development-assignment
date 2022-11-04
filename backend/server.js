@@ -65,7 +65,7 @@ app.use((error, req, res, next) => {
 
 
 mongoose.connect(
-    'mongodb+srv://thushaltk:thushal1234@cluster0.tivsh.mongodb.net/ssdDb?retryWrites=true&w=majority'
+    ''
 ).then(() => {
     console.log("Connected to Database :)....");
     app.listen(PORT, () => {
