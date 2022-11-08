@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const workerSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true
-    },
     username: {
         type: String,
         required: true

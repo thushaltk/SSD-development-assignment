@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const managerSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true
-    },
     username: {
         type: String,
         required: true
@@ -12,6 +8,10 @@ const managerSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    refreshToken: {
+        type: String,
+        required: false
     },
     savedMsgs: {
         type: Array,
