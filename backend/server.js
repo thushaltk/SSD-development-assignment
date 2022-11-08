@@ -13,7 +13,7 @@ const HttpError = require('./models/http-error');
 // const workshopRoutes = require('./routes/workshop-routes');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
@@ -65,7 +65,7 @@ app.use((error, req, res, next) => {
 
 
 mongoose.connect(
-    ''
+    'mongodb+srv://thushaltk:thushal1234@cluster0.tivsh.mongodb.net/ssd?retryWrites=true&w=majority'
 ).then(() => {
     console.log("Connected to Database :)....");
     app.listen(PORT, () => {

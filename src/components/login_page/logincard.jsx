@@ -7,9 +7,9 @@ import {
   Button,
 } from "@mui/material";
 import Lottie from "react-lottie";
-import * as animationData from "../../assets/images/managerlogin.json";
+import * as animationData from "../../assets/images/adminlogin.json";
 
-const ManagerStaffCard = () => {
+const Logincard = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -24,12 +24,6 @@ const ManagerStaffCard = () => {
       <Card style={{ width: "300px", height: "fit-content" }}>
         <CardContent>
           <br />
-          <Typography
-            variant="h4"
-            style={{ fontFamily: "Tenorite", fontWeight: "700" }}
-          >
-            Manager Login
-          </Typography>
           <Lottie
             options={defaultOptions}
             height={200}
@@ -38,7 +32,7 @@ const ManagerStaffCard = () => {
             isPaused={false}
           />
           <TextField
-            id="manager-email"
+            id="admin-email"
             label="Email"
             variant="standard"
             style={{ width: "100%" }}
@@ -46,7 +40,7 @@ const ManagerStaffCard = () => {
           <br />
           <br />
           <TextField
-            id="manager-pwd"
+            id="admin-pwd"
             label="Password"
             variant="standard"
             type="password"
@@ -64,4 +58,4 @@ const ManagerStaffCard = () => {
   );
 };
 
-export default ManagerStaffCard;
+export default Logincard;

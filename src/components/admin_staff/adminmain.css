@@ -1,0 +1,53 @@
+#adminmain {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+#adminmain::before {
+  content: "";
+  background-image: url("https://devops.com/wp-content/uploads/2020/11/Software-Safety-vs.-Security-What_s-the-Difference-1280x720.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.1;
+}
+
+#managerBtn {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  border-radius: 20px;
+  position: relative;
+}
+
+#managerBtn:hover {
+  cursor: pointer;
+}
+
+#workerBtn {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  border-radius: 20px;
+  position: relative;
+}
+
+#workerBtn:hover {
+  cursor: pointer;
+}

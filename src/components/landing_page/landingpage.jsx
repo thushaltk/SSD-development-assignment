@@ -15,7 +15,7 @@ const LandingPage = () => {
         flexDirection: "column",
       }}
     >
-      <h1>Welcome! Select Role</h1>
+      <h1>Welcome! Please enter login credentials</h1>
       <br />
       <br />
       <div style={{width: "100%" }}>
