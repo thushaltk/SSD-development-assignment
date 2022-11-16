@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import Manageradd from "../manager_staff/manageradd";
 import Workeradd from "../worker_staff/workeradd";
 
@@ -8,6 +9,14 @@ import "./adminmain.css";
 const Adminmain = () => {
   const [openAddManager, setOpenAddManager] = useState(false);
   const [openAddWorker, setOpenAddWorker] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    //setOpenAlert(false);
+    if (localStorage.getItem("isAdminLoggedIn") !== "true") {
+      navigate('/', { replace: true });
+    }
+  }, []);
 
   const openAddManagerDialog = () => {
     setOpenAddManager(true);
