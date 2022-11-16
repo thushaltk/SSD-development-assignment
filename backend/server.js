@@ -1,20 +1,20 @@
 const express = require("express");
 const cors = require("cors");
+const https = require("https");
 const mongoose = require("mongoose");
 const HttpError = require("./models/http-error");
 const connectDB = require("./config/dbconnection");
+const fs = require("fs");
+const path = require("path")
 
 //Route imports
 const managerRoutes = require('./routes/manager-routes');
-// const adminRoutes = require('./routes/admin-routes');
-// const attendeeRoutes = require('./routes/attendee-routes');
-// const wspresenterRoutes = require('./routes/ws-presenter-routes');
-// const editorRoutes = require('./routes/editor-routes');
-// const reviewerRoutes = require('./routes/reviewer-routes');
-// const workshopRoutes = require('./routes/workshop-routes');
+const workerRoutes = require('./routes/worker-routes');
+const cookieParser = require("cookie-parser");
+const adminRoutes = require('./routes/admin-routes');
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3443;
 
 app.use(cors());
 app.use(express.json());
@@ -32,12 +32,15 @@ app.use((req, res, next) => {
 
   next();
 });
+app.use(cookieParser())
 
 /**
  * Routes
  */
+
+app.use('/api/admin', adminRoutes);
 app.use('/api/manager', managerRoutes);
-// app.use('/api/worker', researcherRoutes);
+ app.use('/api/worker', workerRoutes);
 // app.use('/api/manager', attendeeRoutes);
 
 
@@ -56,9 +59,15 @@ app.use((error, req, res, next) => {
     .json({ message: error.message || "An unknown error occured" });
 });
 
+
+const sslServer = https.createServer({
+    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem'))
+}, app)
+
 //DB connection
 connectDB().then(() => {
-  app.listen(PORT, () => {
+  sslServer.listen(PORT, () => {
     console.log(`Listening on port ${PORT}....`);
   });
 });

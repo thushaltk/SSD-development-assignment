@@ -10,7 +10,7 @@ const managerSchema = new mongoose.Schema({
         required: true
     },
     refreshToken: {
-        type: String,
+        type: Object,
         required: false
     },
     savedMsgs: {
