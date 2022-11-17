@@ -1,3 +1,5 @@
+import { Logout } from "@mui/icons-material";
+import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
@@ -31,8 +33,24 @@ const Adminmain = () => {
     setOpenAddWorker(false);
   };
 
+  const onLogout = () => {
+    localStorage.removeItem("isManagerLoggedIn");
+    localStorage.removeItem("isAdminLoggedIn");
+    localStorage.removeItem("isWorkerLoggedIn");
+    navigate('/', { replace: true });
+  };
+  
+
   return (
     <div id="adminmain">
+      <Button
+        variant="text"
+        color="primary"
+        endIcon={<Logout />}
+        onClick={onLogout}
+      >
+        Logout
+      </Button>
       <h1>Select Function</h1>
       <br />
       <br />
